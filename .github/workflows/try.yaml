@@ -1,15 +1,19 @@
-name : RunTests
+name : RunTests #this is the name of ur workflow and it will appears im the GitHub Actions tab
 on :
-  push:
+  push: #IT MEANS WENEVER I UPLD CODE TO GITHUB , GIYHUB AUTOMATICALLY STRTS WRKFLOW 
 
-jobs:
+jobs: #its a like a task/mission
   testingapp: #jobsname
     runs-on : ubuntu-latest #like a server
+
     steps:
       - name : get code
         uses : actions/checkout@v4 #it means wen we push code to github this(actions/checkout@v4) will upload the pushed code to ubuntu.
       - name : setting-up the python
-        uses : actions/setup-python@v4 # it will install python version on ubuntu
+        uses : actions/setup-python@v4 # it will install python version on ubuntu cpmuter
         with : 
           python-version : "3.12"
-      - run : python test_math.py
+      - name : RunPython Test
+        run : python test_math.py # this tells Ubuntu START TESTING MY PROJECTor we can also write pytest only
+      - name : Lets install requirements or dependencies
+        run :  pip install -r requirements.txt #it means read the reqmnt.txt file and install all libraries.(pytest,flask,numpy etc)
