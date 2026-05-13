@@ -17,5 +17,5 @@ jobs: #its a like a task/mission
         run : python test_math.py # this tells Ubuntu START TESTING MY PROJECTor we can also write pytest only
       - name : Lets install requirements or dependencies
         run :  pip install -r requirements.txt #it means read the reqmnt.txt file and install all libraries.(pytest,flask,numpy etc)
-        
+      - name : PrintMessage
         run : echo "completed the pipeline successfully"
