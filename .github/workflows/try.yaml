@@ -1,0 +1,15 @@
+name : RunTests
+on :
+  push:
+
+jobs:
+  testingapp: #jobsname
+    runs-on : ubuntu-latest #like a server
+    steps:
+      - name : get code
+        uses : actions/checkout@v4 #it means wen we push code to github this(actions/checkout@v4) will upload the pushed code to ubuntu.
+      - name : setting-up the python
+        uses : action/setup-python@v4 # it will install python version on ubuntu
+        with : 
+          python-version : "3.12"
+      - run : python test_math.py
